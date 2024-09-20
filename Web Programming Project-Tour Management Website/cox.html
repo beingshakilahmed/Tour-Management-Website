@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cox's Bazar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: rgb(218, 233, 209);
+        }
+        .slider-container {
+            position: relative;
+            display: inline-block;
+        }
+        img {
+            max-width: 80%;
+            max-height: 80vh;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        .slide img {
+            width: 1400px; /* Set maximum width */
+            height: 600px; /* Set maximum height */
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .prev {
+            left: 10px;
+            height: 60px;
+            border: none;
+        }
+        .next {
+            right: 10px;
+            height: 60px;
+            border: none;
+        }
+        .packages-row {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            width: 1100px;
+           
+        }
+        .package-container {
+            margin: 0 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+        .book-now-button {
+            margin-top: 20px;
+            margin-left: 50px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .book-now-button:hover {
+            background-color: #0056b3;
+        }
+        
+        .bform-container {
+            display: none; /* Hide the form initially */
+            margin-top: 20px;
+            width: 600px;
+            height: 850px;
+            border: none;
+            background-color: white;
+            padding: 20px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .bform-container h1 {
+            margin-bottom: 20px;
+        }
+        
+        .bform-container label {
+            display: block;
+            margin-left: 30px;
+            margin-bottom: 10px;
+            text-align: left;
+            font-size: larger;
+        }
+        
+        .bform-container input, .bform-container select {
+            width: 450px;
+            padding: 10px;
+            margin-right: 50px;
+            margin-bottom: 20px;
+            border: 1px solid #b65050;
+            border-radius: 5px;
+            font-style:oblique;
+        }
+        
+        .bform-container input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100%; /* Adjusted to fill the container */
+            padding: 10px;
+            
+        }
+        
+        .bform-container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        
+    </style>
+    <script>
+
+        function startBooking(packageName, destination, price) {
+            initialPrice = price;
+           
+                const bookingFormContainer = document.getElementById('bookingFormContainer');
+                bookingFormContainer.style.display = 'block'; 
+                bookingFormContainer.scrollIntoView({ behavior: 'smooth' }); 
+                document.getElementById('package').textContent = packageName;
+                document.getElementById('destination').textContent = destination;
+                document.getElementById('price').textContent = `${price} BDT`;
+                
+                document.getElementById('hidden_package').value = packageName;
+                document.getElementById('hidden_destination').value = destination;
+                document.getElementById('hidden_price').value = price;
+                calculatePrice();
+            }
+        
+
+
+        const images = ['IMG/cox1.jpg', 'IMG/cox2.jpg', 'IMG/cox3.jpg', 'IMG/cox4.jpg', 'IMG/cox5.jpg', 'IMG/cox6.png'];
+       let currentIndex = 0;
+        window.onload = updateImage;
+
+        function prevImage() {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = images.length - 1;
+            }
+            updateImage();
+        }
+
+        function nextImage() {
+            if (currentIndex < images.length - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            updateImage();
+        }
+
+        function updateImage() {
+            const img = document.getElementById('slider-image');
+            img.src = images[currentIndex];
+            img.alt = 'Image ' + (currentIndex + 1);
+           
+        }
+    </script>
+</head>
+<body>
+    <h1>Beauty Of Cox's Bazar</h1>
+    <div class="slider-container">
+        <img class="prev" src="IMG/pre.png" alt="Previous" onclick="prevImage()">
+        <div class="slide">
+            <img id="slider-image" src="IMG/cox1.jpg" alt="Image 1">
+          
+        </div>
+        <img class="next" src="IMG/next.png" alt="Next" onclick="nextImage()">
+    </div>
+
+    <div class="packages-row" style="margin-left: 300px;">
+        <div class="package-container" style="background-color: rgb(236, 186, 135);">
+            <h2><u>Bronze Package</u></h2>
+            <h4>Package Includes:</h4>
+            <ul type="square">
+                <li>Return Ticket</li>
+                <li>Bus (Non-AC)</li>
+                <li>Complimentary Breakfast</li>
+                <li>3 Times Meal</li>
+                <li>Non-AC Room</li>
+                <li>Swimming Pool</li>
+                <li>1 Seafood Meal</li>
+                <li>Visiting Spot 
+                    <ul type="circle">
+                        <li>Inani Beach</li>
+                        <li>Laboni Point</li>
+                        <li>Himchori</li>
+                        <li>Maheshkhali Beach</li>
+                        <li>Marine Drive</li>
+                    </ul>
+                </li>
+                <li>Barbecue Night</li>
+                <li>Free Photographer</li>
+            </ul>
+            <h4>Duration:</h4>
+            <p style="font-size: larger;">4 Nights 3 Days</p>
+            <h4>Price:</h4>
+            <p style="font-size: larger;">Per Person 6990 BDT</p>
+            <button class="book-now-button" onclick="startBooking('Bronze Package', 'Cox\'s Bazar', '6990')">Book Now</button>
+        </div>
+        <div class="package-container" style="background-color: rgb(226, 221, 221);">
+            <h2><u>Silver Package</u></h2>
+            <h4>Package Includes:</h4>
+            <ul type="square">
+                <li>Return Ticket</li>
+                <li>Bus (AC)</li>
+                <li>Complimentary Breakfast</li>
+                <li>3 Times Meal</li>
+                <li>AC Room</li>
+                <li>Swimming Pool</li>
+                <li>2 Seafood Meals</li>
+                <li>Visiting Spot 
+                    <ul type="circle">
+                        <li>Inani Beach</li>
+                        <li>Laboni Point</li>
+                        <li>Himchori</li>
+                        <li>Maheshkhali Beach</li>
+                        <li>Marine Drive</li>
+                    </ul>
+                </li>
+                <li>Barbecue Night</li>
+                <li>Bike Ride on Beach</li>
+                <li>Free Photographer</li>
+            </ul>
+            <h4>Duration:</h4>
+            <p style="font-size: larger;">4 Nights 3 Days</p>
+            <h4>Price:</h4>
+            <p style="font-size: larger;">Per Person 9990 BDT</p>
+            <button class="book-now-button" onclick="startBooking('Silver Package', 'Cox\'s Bazar', '9990')">Book Now</button>
+        </div>
+        <div class="package-container" style="background-color: rgb(236, 217, 110);">
+            <h2><u>Gold Package</u></h2>
+            <h4>Package Includes:</h4>
+            <ul type="square">
+                <li>Return Ticket</li>
+                <li>By Air Journey</li>
+                <li>Complimentary Breakfast</li>
+                <li>3 Times Meal</li>
+                <li>AC Hotel Room</li>
+                <li>Swimming Pool</li>
+                <li>Sea Facing Room</li>
+                <li>3 Seafood Meals</li>
+                <li>Visiting Spot 
+                    <ul type="circle">
+                        <li>Inani Beach</li>
+                        <li>Laboni Point</li>
+                        <li>Himchori</li>
+                        <li>Maheshkhali Beach</li>
+                        <li>Marine Drive</li>
+                    </ul>
+                </li>
+                <li>Barbecue Night</li>
+                <li>Paragliding</li>
+                <li>Speedboat Ride</li>
+                <li>Beach Bike Ride</li>
+                <li>Spa Treatment</li>
+                <li>Sunset Cruise</li>
+                <li>Personal Photographer</li>
+            </ul>
+            <h4>Duration:</h4>
+            <p style="font-size: larger;">4 Nights 3 Days</p>
+            <h4>Price:</h4>
+            <p style="font-size: larger;">Per Person 19990 BDT</p>
+            <button class="book-now-button" onclick="startBooking('Gold Package', 'Cox\'s Bazar', '19990')">Book Now</button>
+        </div>
+    </div>
+
+    <div class="bform-container" id="bookingFormContainer">
+        <h1>Booking Form</h1>
+        <form action="process_booking.php" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" required><br><br>
+
+            <label for="nid">NID:</label>
+            <input type="text" id="nid" name="nid" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="number_of_persons">Number of Persons:</label>
+            <input type="number" id="number_of_persons" name="number_of_persons" ><br><br>
+
+            <label for="package">Package:<span style="margin-left: 190px;" id="package" name="package"></span></label>
+            <input type="hidden" id="hidden_package" name="package" value="">
+            <br><br>
+
+            <label for="destination">Destination:<span style="margin-left: 173px;" id="destination"></span></label>
+            <input type="hidden" id="hidden_destination" name="destination" value="">
+            <br><br>
+
+            <label for="price">Price Per Head:<span style="margin-left: 147px;" id="price"></span></label>
+            <input type="hidden" id="hidden_price" name="price" value="">
+            <br><br>
+            <input type="hidden" id="redirect_ur" name="redirect_ur" value="cox.html">
+            <input type="submit" value="Book Now">
+        </form>
+    </div>
+
+ 
+</body>
+</html>

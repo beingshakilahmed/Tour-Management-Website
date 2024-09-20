@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Management</title>
+    <link rel="stylesheet" href="homec.css">
+    <style>
+
+        .feedback-form {
+            background-color: rgba(238, 181, 181, 0.9);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            margin-left: 30%;
+            width: 600px;
+            height: 400px;
+        }
+        .feedback-form h3 {
+            margin-left: 200px;
+            margin-bottom: 20px;
+        }
+        .feedback-form input, 
+        .feedback-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .feedback-form label{
+            color: #000000;
+            text-shadow: black;
+            font-style: bold;
+            font:larger;
+        }
+        .feedback-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .feedback-form button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body style="background-color: rgb(218, 233, 209);">
+    <header>
+        <div class="container">
+            <h1 style="font-size: xx-large;">Tour Management</h1>
+            <nav>
+                <ul>
+                    <li><a href="Login.php">Login</a></li>
+                    <li><a href="Signup.php">Sign Up</a></li>
+                     </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="home">
+                <h2>Welcome To Our Tour Management System</h2>
+                <p>Explore amazing places, plan your trips, and share your feedback with us!</p>
+            </section>
+
+            <section id="destinations">
+                <h2>Popular Destinations</h2>
+                <div class="destination-grid">
+                    <a href="cox.html" style="text-decoration: none;">
+                    <div class="destination" id="coxDestination">
+                        <img style="height: 250px;" src="IMG/cox.jpg" alt="Destination 1">
+                        
+                        <h1 style="color: rgb(32, 183, 230);">Cox's Bazar</h1>
+                        <p style="color: rgb(32, 183, 230);">World's longest natural sea beach along the Bay of Bengal</p>
+                    </div> </a>
+                    
+                    <a href="sajek.html" style="text-decoration: none;">
+                        <div class="destination" id="coxDestination">
+                            <img style="height: 250px;" src="IMG/saject.jpg" alt="Destination 2">
+                            <h1 style="color: rgb(32, 183, 230);">Sajek Valley</h1>
+                            <p style="color: rgb(32, 183, 230);">Natural greenery and panoramic view of the surrounding hills.</p>
+                        </div> </a>
+                        <a href="sre.html" style="text-decoration: none;">
+                            <div class="destination" id="coxDestination">
+                                <img style="height: 250px;" src="IMG/sre6.jpg" alt="Destination 3">
+                                <h1 style="color: rgb(32, 183, 230);">Sreemangal</h1>
+                                <p style="color: rgb(32, 183, 230);">Tea Capital of Bangladesh with rolling hills, and serene landscapes</p>
+                            </div> </a>
+                    <!-- Add more destinations as needed -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer style="background-color: rgb(174, 236, 187);">
+        <div class="container">
+            <h3>About Us</h3>
+            <p>We are a team passionate about travel and creating memorable experiences for our customers.</p>
+        </div>
+        <div class="feedback-form">
+            <h3>Feedback Form</h3>
+            <form action="feedback.php" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br><br>
+                <input type="hidden" id="redirect_url" name="redirect_url" value="index.html">
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </div>
+    </footer>
+    <script src="coxp.js" defer></script>
+</body>
+</html>
